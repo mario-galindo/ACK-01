@@ -38,3 +38,14 @@ locals {
     Environment = var.environment_tag
   }
 }
+
+########
+# DATA
+########
+
+data "aws_availability_zones" "available" {}
+
+############
+# RESOURCES
+############
+
