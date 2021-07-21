@@ -1,1 +1,15 @@
+# Local .terraform directories
+**/.terraform/*
+
+# All Files with .tfstate extension or contains .tfstate word on his name
+*.tfstate
+*.tfstate.*
+
+# Exclude all .tfvars files
 *.tfvars
+
+# .tfplan files
+*.tfplan
+
+# .hcl files from Terraform v0.14 and newer
+*.hcl
