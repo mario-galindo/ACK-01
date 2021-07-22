@@ -103,3 +103,54 @@ resource "aws_route_table_association" "rta-subnet2" {
   route_table_id = aws_route_table.rtb.id
 }
 
+# Security Groups #
+resource "aws_security_group" "elb-sg" {
+  name   = "chatapp_elb_sg"
+  vpc_id = aws_vpc.vpc.id
+
+  #Allow HTTP from anywhere
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  #allow all outbound
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_security_group" "chatapp-sg" {
+  name   = "chatapp_sg"
+  vpc_id = aws_vpc.vpc.id
+
+  # SSH access from anywhere
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # HTTP access from the VPC
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = [var.network_address_space]
+  }
+
+  # outbound internet access
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
