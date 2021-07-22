@@ -154,3 +154,51 @@ resource "aws_security_group" "chatapp-sg" {
   }
 }
 
+# Load Balancer #
+resource "aws_elb" "web" {
+  name = "chatapp-elb"
+
+  subnets         = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
+  security_groups = [aws_security_group.elb-sg.id]
+  instances       = [aws_instance.chatapp-instance1.id, aws_instance.chatapp-instance2.id]
+
+  listener {
+    instance_port     = 5000
+    instance_protocol = "http"
+    lb_port           = 5000
+    lb_protocol       = "http"
+  }
+}
+
+# Chat App Instances #
+resource "aws_instance" "chatapp-instance1" {
+  ami                    = "ami-00399ec92321828f5"
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.subnet1.id
+  vpc_security_group_ids = [aws_security_group.chatapp-sg.id]
+  key_name               = var.key_name
+
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ubuntu"
+    private_key = file(var.private_key_path)
+
+  }
+}
+
+resource "aws_instance" "chatapp-instance2" {
+  ami                    = "ami-00399ec92321828f5"
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.subnet2.id
+  vpc_security_group_ids = [aws_security_group.chatapp-sg.id]
+  key_name               = var.key_name
+
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    user        = "ubuntu"
+    private_key = file(var.private_key_path)
+
+  }
+}
