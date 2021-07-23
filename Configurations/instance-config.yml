@@ -39,3 +39,8 @@
       name: pm2 
       global: yes 
       production: yes
+
+  - name: Create App Directory
+    file: 
+      path: "{{homeDir}}/{{appDir}}" 
+      state: directory
