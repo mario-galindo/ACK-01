@@ -76,5 +76,14 @@ We need to run our ansible playbook located in the **Configuration** directory
 
 `In my local environment I have configured my ansible inventory with the public IP of my two ec2 instances created before`
 
+The ansible playbook has the following task:
+
+- Install Node Using NVM (Node Version Manager)
+- Install PM2
+- Create the app directory
+- Clone the app from Github
+- Install App Packages
+- Stop/Start the app using PM2
+
 
 
