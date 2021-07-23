@@ -110,8 +110,8 @@ resource "aws_security_group" "elb-sg" {
 
   #Allow HTTP from anywhere
   ingress {
-    from_port   = 5000
-    to_port     = 5000
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -165,7 +165,7 @@ resource "aws_elb" "web" {
   listener {
     instance_port     = 5000
     instance_protocol = "http"
-    lb_port           = 5000
+    lb_port           = 80
     lb_protocol       = "http"
   }
 }
