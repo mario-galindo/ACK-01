@@ -37,3 +37,18 @@ On this section I declared the following variables:
 - **network_address_space** My IP's address range for the VPC.
 - **subnet1_address_space** : My IP's address range for subnet 1
 - **subnet2_address_space** : My IP's address range for subnet 2
+
+### Providers
+
+Declare my aws provider and set the initialize values.
+
+### Locals
+
+Declare local variables because in some case is needed to create a compose variable.
+
+### Data
+
+Get a list from aws of my avalilability zone according to my region
+
+
+
