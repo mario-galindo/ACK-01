@@ -1,0 +1,9 @@
+---
+- hosts: app
+  remote_user: ubuntu
+  become: yes
+  become_flags: -i
+
+  vars:
+    - homeDir: /home/ubuntu
+    - appDir : app
