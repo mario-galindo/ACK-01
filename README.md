@@ -27,3 +27,13 @@ This **main.tf** file is divided on these sections:
 
 On this section I declared the following variables:
 
+- **aws_access_key** : key to access and create resoures on my account.
+- **aws_secret_key** : secret key to access and create resoures on my account.
+- **key_name** : The name of my ssh key
+- **private_key_path** : The location of my key in my local computer.
+- **region** : My default aws region
+- **environment_tag** : custom tags to identify resources.
+
+- **network_address_space** My IP's address range for the VPC.
+- **subnet1_address_space** : My IP's address range for subnet 1
+- **subnet2_address_space** : My IP's address range for subnet 2
