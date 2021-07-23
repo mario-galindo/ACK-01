@@ -44,3 +44,14 @@
     file: 
       path: "{{homeDir}}/{{appDir}}" 
       state: directory
+
+  - name: Clone Github App Repo (Main Branch)
+    ansible.builtin.git:
+      repo: https://github.com/mario-galindo/Chat-App-using-Socket.io.git
+      dest: "{{homeDir}}/{{appDir}}"
+      single_branch: yes
+      version: master
+    
+  - name: Install Packages Based on package.json.
+    npm:
+      path: "{{homeDir}}/{{appDir}}"
