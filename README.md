@@ -64,5 +64,17 @@ Here is the hot part of the configuration I declared the following resources:
 - Load Balancer
 - ec2 instances (2)
 
+### Outputs
+
+The main output of this terraform configuration is the dns address of the load balancer because is the way that users can access to the app.
+
+## Configure Instances with ansible
+
+After the terraform configuration is applied against our aws account 
+
+We need to run our ansible playbook located in the **Configuration** directory
+
+`In my local environment I have configured my ansible inventory with the public IP of my two ec2 instances created before`
+
 
 
