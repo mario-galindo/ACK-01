@@ -14,7 +14,7 @@ In the **Infrastructure** directory you can found all the terraform configuratio
 
 All terraform configuration is on file called **main.tf** and the other important file is **terraform.tfvars**(Hiden)
 
-This *main.tf* file is divided in these section:
+This **main.tf** file is divided on these sections:
 
 - Variables
 - Providers
@@ -22,3 +22,8 @@ This *main.tf* file is divided in these section:
 - Data
 - Resources
 - Outputs
+
+### Variables
+
+On this section I declared the following variables:
+
