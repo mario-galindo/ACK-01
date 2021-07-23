@@ -50,5 +50,19 @@ Declare local variables because in some case is needed to create a compose varia
 
 Get a list from aws of my avalilability zone according to my region
 
+### Resources
+
+Here is the hot part of the configuration I declared the following resources:
+
+- VPC
+- Internet Gateway
+- Subnets (2)
+- Route Table
+- Route Table Association (2)
+- Security Group for Load Balance
+- Security Group for ec2 instances
+- Load Balancer
+- ec2 instances (2)
+
 
 
