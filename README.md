@@ -10,6 +10,15 @@ Github Repo Structure:
 
 ## Create and Deploy AWS Infraestructure
 
-In the **Infrastructure** you can found all the terraform configuration (some files are not present because are in the .ignored file()
+In the **Infrastructure** directory you can found all the terraform configuration (some files are not present because are in the .ignored file)
 
-All the terrafor configuration is on file called **main.tf** and the other important file is **terraform.tfvars**(Hiden)
+All terraform configuration is on file called **main.tf** and the other important file is **terraform.tfvars**(Hiden)
+
+This *main.tf* file is divided in these section:
+
+- Variables
+- Providers
+- Locals
+- Data
+- Resources
+- Outputs
