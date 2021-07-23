@@ -55,3 +55,11 @@
   - name: Install Packages Based on package.json.
     npm:
       path: "{{homeDir}}/{{appDir}}"
+
+  - name: Stop App
+    command: pm2 stop app chdir="{{homeDir}}/{{appDir}}"
+    ignore_errors: yes
+
+  - name: Start App
+    command: pm2 start app.js --name app chdir="{{homeDir}}/{{appDir}}"
+    ignore_errors: yes
