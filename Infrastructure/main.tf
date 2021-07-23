@@ -50,6 +50,7 @@ data "aws_availability_zones" "available" {}
 ############
 
 # Networking #
+
 resource "aws_vpc" "vpc" {
   cidr_block           = var.network_address_space
   enable_dns_hostnames = "true"
@@ -82,6 +83,7 @@ resource "aws_subnet" "subnet2" {
 }
 
 # Routing #
+
 resource "aws_route_table" "rtb" {
   vpc_id = aws_vpc.vpc.id
 
@@ -104,6 +106,7 @@ resource "aws_route_table_association" "rta-subnet2" {
 }
 
 # Security Groups #
+
 resource "aws_security_group" "elb-sg" {
   name   = "chatapp_elb_sg"
   vpc_id = aws_vpc.vpc.id
@@ -155,6 +158,7 @@ resource "aws_security_group" "chatapp-sg" {
 }
 
 # Load Balancer #
+
 resource "aws_elb" "web" {
   name = "chatapp-elb"
 
@@ -171,6 +175,7 @@ resource "aws_elb" "web" {
 }
 
 # Chat App Instances #
+
 resource "aws_instance" "chatapp-instance1" {
   ami                    = "ami-00399ec92321828f5"
   instance_type          = "t2.micro"
@@ -201,4 +206,12 @@ resource "aws_instance" "chatapp-instance2" {
     private_key = file(var.private_key_path)
 
   }
+}
+
+##########
+# OUTPUT
+##########
+
+output "aws_elb_public_dns" {
+  value = aws_elb.web.dns_name
 }
