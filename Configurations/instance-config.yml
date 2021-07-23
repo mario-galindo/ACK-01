@@ -33,3 +33,9 @@
       creates: "$HOME/.nvm/versions/node/v{{item}}"
     loop:
       - 14.15.0
+
+  - name: Install pm2
+    npm: 
+      name: pm2 
+      global: yes 
+      production: yes
