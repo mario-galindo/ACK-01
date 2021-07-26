@@ -1,6 +1,8 @@
 # Acklen Avenue - DevOps Challenge
 Presented by: **Mario Galindo**
 
+[Challenge Result (LB DNS Name):](http://chatapp-elb-1825129407.us-east-2.elb.amazonaws.com/) 
+
 ## This DevOps Challenge is divide in Two Areas:
 - Create and deploy the infrastructure using terraform (also know as Infrastructure as Code IaC)
 - Configure aws ec2 instances to install and run a chat app using ansible
